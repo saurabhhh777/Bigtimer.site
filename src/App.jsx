@@ -6,20 +6,29 @@ export default function CountdownTimer() {
   const [seconds, setSeconds] = useState(0);
   const [timeLeft, setTimeLeft] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Function to start the countdown
+  // Function to start or resume the countdown
   const startCountdown = () => {
     const totalSeconds = hours * 3600 + minutes * 60 + seconds;
-    if (totalSeconds > 0 && totalSeconds <= 86400) { // Max 24 hours
+    if (!isPaused && totalSeconds > 0 && totalSeconds <= 86400) { // Start only if not paused
       setTimeLeft(totalSeconds);
-      setIsRunning(true);
     }
+    setIsRunning(true);
+    setIsPaused(false);
+  };
+
+  // Function to pause the countdown
+  const pauseCountdown = () => {
+    setIsPaused(true);
+    setIsRunning(false);
   };
 
   // Function to reset the countdown
   const resetCountdown = () => {
     setTimeLeft(null);
     setIsRunning(false);
+    setIsPaused(false);
     setHours(0);
     setMinutes(0);
     setSeconds(0);
@@ -51,7 +60,7 @@ export default function CountdownTimer() {
       <h1 className="text-7xl font-extrabold mb-12">Countdown Timer</h1>
 
       <div className="bg-gray-800 p-10 rounded-2xl shadow-2xl flex flex-col items-center min-w-[450px]">
-        {!isRunning ? (
+        {!isRunning && !isPaused ? (
           <div className="flex space-x-6">
             <input
               type="number"
@@ -87,21 +96,42 @@ export default function CountdownTimer() {
           </h2>
         )}
 
-        {!isRunning ? (
-          <button
-            onClick={startCountdown}
-            className="mt-8 px-8 py-4 text-4xl bg-blue-600 hover:bg-blue-700 rounded-2xl shadow-lg"
-          >
-            Start Countdown
-          </button>
-        ) : (
-          <button
-            onClick={resetCountdown}
-            className="mt-8 px-8 py-4 text-4xl bg-red-600 hover:bg-red-700 rounded-2xl shadow-lg"
-          >
-            Reset
-          </button>
-        )}
+        <div className="mt-8 flex space-x-6">
+          {!isRunning && !isPaused && (
+            <button
+              onClick={startCountdown}
+              className="px-8 py-4 text-4xl bg-blue-600 hover:bg-blue-700 rounded-2xl shadow-lg"
+            >
+              Start Countdown
+            </button>
+          )}
+
+          {isRunning && (
+            <button
+              onClick={pauseCountdown}
+              className="px-8 py-4 text-4xl bg-yellow-600 hover:bg-yellow-700 rounded-2xl shadow-lg"
+            >
+              Pause
+            </button>
+          )}
+
+          {isPaused && (
+            <>
+              <button
+                onClick={startCountdown}
+                className="px-8 py-4 text-4xl bg-green-600 hover:bg-green-700 rounded-2xl shadow-lg"
+              >
+                Resume
+              </button>
+              <button
+                onClick={resetCountdown}
+                className="px-8 py-4 text-4xl bg-red-600 hover:bg-red-700 rounded-2xl shadow-lg"
+              >
+                Reset
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
