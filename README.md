@@ -1,8 +1,39 @@
-# React + Vite
+# BigTimer.site ⌛
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Website](https://bigtimer.site)
 
-Currently, two official plugins are available:
+A minimalist full-screen timer for focused work, study sessions, gaming intervals, and productivity. Time management made simple.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Demo] 
+
+## Features 🚀
+- ⏱️ Clean countdown timer interface
+- 🔄 Start/Pause/Reset controls
+- 🖥️ Full-screen focus mode
+- 🔔 Audio notification when timer ends
+- 📱 Mobile-friendly design
+- ⚡ Instant time input (no app install)
+- 🌓 Dark/Light mode support
+
+## How to Use 💡
+1. Visit [bigtimer.site](https://bigtimer.site)
+2. Set time using number pad or manual input
+3. Click "Start" to begin countdown
+4. Use full-screen button for distraction-free mode
+5. Get notified when time's up!
+
+## Why BigTimer? 🎯
+- Perfect for Pomodoro technique
+- Great for gaming time limits
+- Ideal for workout intervals
+- Works on all devices
+- Zero configuration needed
+
+## Contributing 🤝
+Contributions welcome! Open issues or PRs for:
+- New features
+- UI improvements
+- Bug fixes
+
+## License 📄
+MIT License - Free for personal and commercial use
