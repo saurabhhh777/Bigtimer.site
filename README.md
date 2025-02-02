@@ -1,6 +1,6 @@
 # BigTimer.site ⌛
 
-[![Website](https://bigtimer.site)
+(https://bigtimer.site)
 
 A minimalist full-screen timer for focused work, study sessions, gaming intervals, and productivity. Time management made simple.
 
